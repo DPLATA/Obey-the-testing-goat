@@ -14,3 +14,16 @@ Functional tests should help you build an application with the right functionali
 
 resolve is the function Django uses internally to resolve URLs and find what view function they should map to. We’re checking that resolve, when called with “/”, the root of the site, finds a function called home_page.
 What function is that? It’s the view function we’re going to write next, which will actually return the HTML we want. You can see from the import that we’re planning to store it in lists/views.py.
+
+Terminology:
+Functional Test == Acceptance Test == End-to-End Test
+
+But their point was that it’s pointless to write a comment that just repeats what you’re doing with the code:
+Not only is it pointless, but there’s a danger that you’ll forget to update the comments when you update the code, and they end up being misleading. The ideal is to strive to make your code so readable, to use such good variable names and function names, and to structure it so well that you no longer need any comments to explain what the code is doing. Just a few here and there to explain why.
+
+That’s what we call an expected fail, which is actually good news—not quite as good as a test that passes, but at least it’s failing for the right reason; we can have some confidence we’ve written the test correctly.
+
+Tests are organised into classes, which inherit from unittest.TestCase. name starts with test is a test method, and will be run by the test runner
+setUp and tearDown are special methods which get run before and after each test
+
+Finally, we have the if __name__ == '__main__' clause (if you’ve not seen it before, that’s how a Python script checks if it’s been executed from the command line, rather than just imported by another script). We call unittest.main(), which launches the unittest test runner, which will automatically find test classes and methods in the file and run them.

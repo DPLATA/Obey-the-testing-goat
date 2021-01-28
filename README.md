@@ -8,3 +8,8 @@ I will be updating the this section with the project structure a little bit more
 
 ## 3. Installation and running steps
 Also I will be updating this section with install and running steps for anyone who wants to try it.
+
+## 4. Authors and acknowledgments
+
+## 5. Project status
+BEING WORKED ON!!

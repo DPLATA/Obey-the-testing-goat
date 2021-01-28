@@ -27,3 +27,10 @@ Tests are organised into classes, which inherit from unittest.TestCase. name sta
 setUp and tearDown are special methods which get run before and after each test
 
 Finally, we have the if __name__ == '__main__' clause (if you’ve not seen it before, that’s how a Python script checks if it’s been executed from the command line, rather than just imported by another script). We call unittest.main(), which launches the unittest test runner, which will automatically find test classes and methods in the file and run them.
+
+TDD is a discipline, and that means it’s not something that comes naturally; because many of the payoffs aren’t immediate but only come in the longer term, you have to force yourself to do it in the moment.
+I suggest following the discipline for now—​as with any discipline, you have to take the time to learn the rules before you can break them
+
+When we hit Enter, the page will refresh. The time.sleep is there to make sure the browser has finished loading before we make any assertions about the new page. This is called an "explicit wait" (a very simple one; we’ll improve it in [chapter_explicit_waits_1]).
+
+Big changes to a functional test are usually a good thing to commit on their own. The more atomic your commits, the better

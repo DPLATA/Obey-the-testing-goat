@@ -34,3 +34,12 @@ I suggest following the discipline for now—​as with any discipline, you have
 When we hit Enter, the page will refresh. The time.sleep is there to make sure the browser has finished loading before we make any assertions about the new page. This is called an "explicit wait" (a very simple one; we’ll improve it in [chapter_explicit_waits_1]).
 
 Big changes to a functional test are usually a good thing to commit on their own. The more atomic your commits, the better
+
+In general, one of the rules of unit testing is Don’t test constants, and testing HTML as text is a lot like testing a constant
+Unit tests are really about testing logic, flow control, and configuration
+That’s a refactor—​when we try to improve the code without changing its functionality
+That last bit is really important. If you try to add new functionality at the same time as refactoring, you’re much more likely to run into trouble
+The first rule is that you can’t refactor without tests
+they will be what makes sure that our refactoring is behaviour preserving
+When refactoring, work on either the code or the tests, but not both at once. 
+stick to small steps; keep refactoring and functionality changes entirely separate.

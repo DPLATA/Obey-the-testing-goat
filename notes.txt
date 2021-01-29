@@ -43,3 +43,37 @@ The first rule is that you can’t refactor without tests
 they will be what makes sure that our refactoring is behaviour preserving
 When refactoring, work on either the code or the tests, but not both at once. 
 stick to small steps; keep refactoring and functionality changes entirely separate.
+
+ Well, you can think of the functional test as being a high-level view of the cycle, where "writing the code" to get the functional tests to pass actually involves using another, smaller TDD cycle which uses unit tests.
+ The functional tests are the ultimate judge of whether your application works or not. The unit tests are a tool to help you along the way.
+
+the point of TDD is to allow you to do one thing at a time, when you need to
+
+
+
+When a functional test fails with an unexpected failure, there are several things we can do to debug it:
+
+    Add print statements, to show, for example, what the current page text is.
+
+    Improve the error message to show more info about the current state.
+
+    Manually visit the site yourself.
+
+    Use time.sleep to pause the test during execution.[1]
+
+Cross-Site Request Forgery
+
+
+You should always be very worried whenever you think you’re being clever, because what you’re probably being is overcomplicated
+
+
+
+The unit-test/code cycle is sometimes taught as Red, Green, Refactor:
+
+    Start by writing a unit test which fails (Red).
+
+    Write the simplest possible code to get it to pass (Green), even if that means cheating.
+
+    Refactor to get to better code that makes more sense.
+
+I find that leaves things a little too vague, so I usually like to use a second technique, which is called triangulation: if your tests let you get away with writing "cheating" code that you’re not happy with, like returning a magic constant, write another test that forces you to write some better code. That’s what we’re doing when we extend the FT to check that we get a "2:" when inputting a second list item.

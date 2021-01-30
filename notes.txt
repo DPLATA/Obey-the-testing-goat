@@ -77,3 +77,5 @@ The unit-test/code cycle is sometimes taught as Red, Green, Refactor:
     Refactor to get to better code that makes more sense.
 
 I find that leaves things a little too vague, so I usually like to use a second technique, which is called triangulation: if your tests let you get away with writing "cheating" code that you’re not happy with, like returning a magic constant, write another test that forces you to write some better code. That’s what we’re doing when we extend the FT to check that we get a "2:" when inputting a second list item.
+
+Purists will tell you that a "real" unit test should never touch the database, and that the test I’ve just written should be more properly called an integrated test, because it doesn’t only test our code, but also relies on an external system—​that is, a database.

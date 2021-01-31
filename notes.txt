@@ -79,3 +79,11 @@ The unit-test/code cycle is sometimes taught as Red, Green, Refactor:
 I find that leaves things a little too vague, so I usually like to use a second technique, which is called triangulation: if your tests let you get away with writing "cheating" code that you’re not happy with, like returning a magic constant, write another test that forces you to write some better code. That’s what we’re doing when we extend the FT to check that we get a "2:" when inputting a second list item.
 
 Purists will tell you that a "real" unit test should never touch the database, and that the test I’ve just written should be more properly called an integrated test, because it doesn’t only test our code, but also relies on an external system—​that is, a database.
+
+a long unit test either needs to be broken into two, or it may be an indication that the thing you’re testing is too complicated
+
+Good unit testing practice says that each test should only test one thing. The reason is that it makes it easier to track down bugs. Having multiple assertions in a test means that, if the test fails on an early assertion, you don’t know what the status of the later assertions is.
+
+Are you wondering about the line spacing in the test? I’m grouping together two lines at the beginning which set up the test, one line in the middle which actually calls the code under test, and the assertions at the end. This isn’t obligatory, but it does help see the structure of the test. Setup, Exercise, Assert is the typical structure for a unit test.
+Django creates a special test database for unit tests
+And we’ve used at least three different FT debugging techniques: in-line print statements, time.sleeps, and improving the error messages

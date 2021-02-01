@@ -130,3 +130,8 @@ At the top level, we’re going to use a combination of adding new functionality
 At the unit test level, we’ll be adding new tests or modifying existing ones to test for the changes we want, and we’ll be able to similarly use the unit tests we don’t touch to help make sure we don’t break anything in the process
 
  	I’m using the convention of double-hashes (##) to indicate "meta-comments"—comments about how the test is working and why
+Being all excited about our new design, I had an overwhelming urge to dive in at this point and start changing models.py, which would have broken half the unit tests, and then pile in and change almost every single line of code, all in one go. That’s a natural urge, and TDD, as a discipline, is a constant fight against it. Obey the Testing Goat, not Refactoring Cat! We don’t need to implement our new, shiny design in a single big bang. Let’s make small changes that take us from a working state to a working state, with our design guiding us gently at each stage
+
+There are four items on our to-do list. The FT, with its Regexp didn't match, is telling us that the second item—​giving lists their own URL and identifier—​is the one we should work on next. Let’s have a go at fixing that, and only that.
+Not only is our new test failing, but the old one is too. That tells us we’ve introduced a regression. Let’s try to get back to a working state as quickly as possible by building a URL for our one and only list
+Red/Green/Refactor dance

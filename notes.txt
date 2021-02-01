@@ -109,3 +109,24 @@ The scratchpad to-do list
 
     A place to write down things that occur to us as we’re coding, so that we can finish up what we’re doing and come back to them later.
 
+
+Testing "Best Practices" Applied in this Chapter
+
+Ensuring test isolation and managing global state
+
+    Different tests shouldn’t affect one another. This means we need to reset any permanent state at the end of each test. Django’s test runner helps us do this by creating a test database, which it wipes clean in between each test. (See also [chapter_purist_unit_tests].)
+Avoid "voodoo" sleeps
+
+    Whenever we need to wait for something to load, it’s always tempting to throw in a quick-and-dirty time.sleep. But the problem is that the length of time we wait is always a bit of a shot in the dark, either too short and vulnerable to spurious failures, or too long and it’ll slow down our test runs. Prefer a retry loop that polls our app and moves on as soon as possible.
+Don’t rely on Selenium’s implicit waits
+
+    Selenium does theoretically do some "implicit" waits, but the implementation varies between browsers, and at the time of writing was highly unreliable in the Selenium 3 Firefox driver. "Explicit is better than implict", as the Zen of Python says, so prefer explicit waits.
+
+critical TDD technique: how to adapt existing code using an incremental, step-by-step process which takes you from working state to working state. Testing Goat, not Refactoring Cat.
+TDD is closely associated with the agile movement in software development, which includes a reaction against Big Design Up Front
+But we obey another tenet of the agile gospel: "YAGNI" (pronounced yag-knee), which stands for "You ain’t gonna need it
+
+At the top level, we’re going to use a combination of adding new functionality (by adding a new FT and writing new application code), and refactoring our application—​that is, rewriting some of the existing implementation so that it delivers the same functionality to the user but using aspects of our new design. We’ll be able to use the existing functional test to verify we don’t break what already works, and the new functional test to drive the new features
+At the unit test level, we’ll be adding new tests or modifying existing ones to test for the changes we want, and we’ll be able to similarly use the unit tests we don’t touch to help make sure we don’t break anything in the process
+
+ 	I’m using the convention of double-hashes (##) to indicate "meta-comments"—comments about how the test is working and why
